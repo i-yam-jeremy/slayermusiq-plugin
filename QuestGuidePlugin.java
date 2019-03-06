@@ -49,7 +49,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.youtube;
+package net.runelite.client.plugins.slayermusiq;
 
 import com.google.inject.Provides;
 import com.google.common.primitives.Ints;
@@ -69,8 +69,8 @@ import net.runelite.api.MenuEntry;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.api.events.MenuEntryAdded;
 import net.runelite.api.events.MenuOptionClicked;
-import net.runelite.client.util.LinkBrowser;
 import net.runelite.client.util.Text;
+import net.runelite.client.chat.ChatMessageManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
@@ -95,6 +95,9 @@ public class QuestGuidePlugin extends Plugin
 
   @Inject
   private Client client;
+
+	@Inject
+	private ChatMessageManager chatMessageManager;
 
 	@Override
 	protected void startUp() throws Exception
@@ -128,7 +131,7 @@ public class QuestGuidePlugin extends Plugin
 		if (ev.getMenuAction() == MenuAction.RUNELITE && ev.getMenuOption().equals(MENUOP_SLAYERMUSIQ)) {
 			ev.consume();
 			String quest = Text.removeTags(ev.getMenuTarget());
-			System.out.println("slayermusiq1: " + quest);
+			QuestGuideLinks.tryOpenGuide(quest, chatMessageManager);
 		}
 	}
 
