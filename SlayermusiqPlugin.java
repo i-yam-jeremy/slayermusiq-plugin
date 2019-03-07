@@ -76,12 +76,12 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 
 @PluginDescriptor(
-	name = "Quest Guide",
-	description = "TODO", // TODO
-	tags = {} // TODO
+	name = "Slayermusiq1 Guides",
+	description = "Adds a right-click option to go to Slayermusiq1's guides from the quest tab",
+	tags = {"quest", "guide", "slayermusiq"}
 )
 @Slf4j
-public class QuestGuidePlugin extends Plugin
+public class SlayermusiqPlugin extends Plugin
 {
 
 	private static final int[] QUESTLIST_WIDGET_IDS = new int[]
@@ -93,8 +93,8 @@ public class QuestGuidePlugin extends Plugin
 
 	private static final String MENUOP_SLAYERMUSIQ = "Slayermusiq";
 
-  @Inject
-  private Client client;
+	@Inject
+	private Client client;
 
 	@Inject
 	private ChatMessageManager chatMessageManager;
